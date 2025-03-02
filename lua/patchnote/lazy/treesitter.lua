@@ -27,8 +27,8 @@ return
                     lookahead = true,
 
                     keymaps = {
-                        ["p"] = "@parameter.inner",
-                        ["P"] = "@parameter.outer",
+--                        ["p"] = "@parameter.inner",
+--                        ["P"] = "@parameter.outer",
                         -- You can use the capture groups defined in textobjects.scm
                         ["af"] = "@function.outer",
                         ["if"] = "@function.inner",

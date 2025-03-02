@@ -44,6 +44,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+--vim.api.nvim_create_autocmd("FileType", {
+--  desc = "Autoformat JSON using JQ",
+--  callback = function(opts)
+--    if vim.bo[opts.buf].filetype == "json" then
+--      vim.local
+--  command = "set formatprg=jq"
+--})
+
 -- Where kickstart ends and I being
 vim.opt.wrap = false
 

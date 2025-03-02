@@ -1,8 +1,10 @@
+--,+5!tac
+
 vim.keymap.set("n", "<leader>ls", vim.cmd.Ex)
 
 -- Prevents delete from overriding system clipboard
-vim.keymap.set("n", "d", "\"\"d")
-vim.keymap.set("n", "D", "\"\"D")
+vim.keymap.set({"n", "v"}, "d", "\"_d")
+vim.keymap.set({"n", "v"}, "D", "\"_D")
 -- Prevents X/C from overwriting registers.  Straight to the void for you
 vim.keymap.set("n", "c", "\"_c")
 vim.keymap.set("n", "C", "\"_C")
@@ -13,15 +15,21 @@ vim.keymap.set("n", "X", "\"_X")
 vim.keymap.set("n", "y", "\"0y")
 vim.keymap.set("n", "Y", "\"0Y")
 -- Yank to system clipboard
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y")
+--vim.keymap.set("n", "<leader>y", "\"+y")
+--vim.keymap.set("n", "<leader>Y", "\"+Y")
+--
+---- Paste last yanked content
+vim.keymap.set({"n", "v"}, "p", "\"0p")
+vim.keymap.set({"n", "v"}, "P", "\"0P")
+---- Paste from system clipboard
+--vim.keymap.set("n", "<leader><C-p>", "\"+p")
+--vim.keymap.set("n", "<leader><C-P>", "\"+P")
 
--- Paste last yanked content
-vim.keymap.set("n", "p", "\"0p")
-vim.keymap.set("n", "P", "\"0P")
--- Paste from system clipboard
-vim.keymap.set("n", "<leader><C-p>", "\"+p")
-vim.keymap.set("n", "<leader><C-P>", "\"+P")
+vim.keymap.set("n", "<leader>w", "<C-w>p:cclose<CR>")
+vim.keymap.set("n", "<leader>W", ":cclose<CR>")
+
+-- Move to next parameter, delete it, and enter insert
+vim.keymap.set("n", "<leader>]", "<leader>ncp<space>", { remap=true })
 
 -- Moves selected visual block up or down, autoindenting
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -33,6 +41,9 @@ vim.keymap.set("n", "J", "mzJ`z")
 -- Keeps cursor centered when jumping to next/previous found
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { remap=false })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { remap=false })
 
 -- Paste over current word while preserving clipboard
 --vim.keymap.set("x", "<leader>v", "\"_dP")
@@ -53,7 +64,7 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>")
 -- Uses Telescope to allow jumping to functions
 vim.keymap.set("n", "<leader>lm", function() 
-   require("telescope.builtin").lsp_document_symbols({symbols={"method","function"}}) 
+   require("telescope.builtin").lsp_document_symbols({symbols={"method","function","struct","field"}}) 
 end, opts)
 
 
