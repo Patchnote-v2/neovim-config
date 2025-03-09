@@ -41,5 +41,10 @@ cmp.setup({
     }
 })
 
+local neogit = require("neogit")
+neogit.setup({
+    disable_relative_line_numbers = false,
+})
+
 -- Remap goes last to Harpoon keybinds can be set
 require("patchnote.remap")

@@ -11,5 +11,8 @@ return
         )
         lspconfig.clangd.setup({ filetypes = { "c", "h" }})
         lspconfig.cmake.setup({})
+        lspconfig.djlsp.setup({})
+        lspconfig.jedi_language_server.setup({})
+--        lspconfig.eslint.setup({})
     end,
 }
