@@ -13,6 +13,12 @@ return
         lspconfig.cmake.setup({})
         lspconfig.djlsp.setup({})
         lspconfig.jedi_language_server.setup({})
---        lspconfig.eslint.setup({})
+        lspconfig.ts_ls.setup({})
+
+        -- vscode-langservers-extracted
+        lspconfig.eslint.setup({})
+        lspconfig.cssls.setup({})
+        lspconfig.html.setup({})
+        lspconfig.jsonls.setup({})
     end,
 }
