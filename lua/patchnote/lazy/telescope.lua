@@ -40,6 +40,11 @@ return
                     require('telescope.themes').get_dropdown(),
                 },
             },
+            pickers = {
+                find_files = {
+                    hidden = true,
+                },
+            },
         })
 
         -- See `:help telescope.builtin`
